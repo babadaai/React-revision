@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Movie-Mate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #4b3e23, #6f6239);
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      color: #fff;
+    }
+    .hero h1 {
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .movie-grid {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    .movie-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+    .movie-card:hover {
+      transform: scale(1.03);
+    }
+    .btn-primary {
+      background-color: #3c2f20;
+      border: none;
+      border-radius: 10px;
+    }
+    .btn-primary:hover {
+      background-color: #2e2419;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <img src="logo.png" width="120" alt="Logo"/>
+    <h1>Welcome to Movie-Mate</h1>
+    <p>Discover, explore, and add your favorite movies to your cart.</p>
+  </div>
+
+  <div class="movie-grid">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="movie-card p-3 bg-light">
+          <h5>🎬 The Cinematic Journey</h5>
+          <p>A breathtaking story of passion and creativity.</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="movie-card p-3 bg-light">
+          <h5>🎥 Noir Nights</h5>
+          <p>Step into the shadows with this timeless thriller.</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="movie-card p-3 bg-light">
+          <h5>🌟 Future Flicks</h5>
+          <p>Upcoming releases to keep an eye on.</p>
+          <button class="btn btn-primary w-100">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
