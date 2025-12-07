@@ -1,18 +1,15 @@
-import { Test } from "./Test1.jsx";
+import { Goal } from "./Goal";
+import { Conditional } from "./Conditional";
 
 function App() {
-  const data = {
-    name: "Nischal",
-    dob: 2002,
-    age: function () {
-      return new Date().getFullYear() - this.dob;
-    }
-  };
+ 
 
   return (
     <>
-      First  
-      <Test num1={2} num2={3} data={data} />
+      
+      
+      <Conditional player={"Ronaldo"}/>
+      
     </>
   );
 }
