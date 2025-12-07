@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Change Password | Movie-Mate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #4b3e23, #6f6239);
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #3c2f20;
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px 0;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li {
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .sidebar li:hover,
+    .sidebar li.active {
+      background-color: #6f6239;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+    .profile-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    .tab-nav {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+    .tab-nav button {
+      background-color: #6f6239;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    .tab-nav .active {
+      background-color: #3c2f20;
+    }
+    label {
+      font-weight: 600;
+      color: #3c2f20;
+    }
+    .btn-primary {
+      background-color: #3c2f20;
+      border: none;
+      border-radius: 10px;
+    }
+    .btn-primary:hover {
+      background-color: #2e2419;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #6f6239;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li>Home</li>
+      <li>Movies</li>
+      <li>Orders</li>
+      <li>Users</li>
+      <li class="active">Profile</li>
+    </ul>
+  </aside>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <div class="profile-container">
+      <div class="tab-nav">
+        <button>Profile</button>
+        <button class="active">Change Password</button>
+        <button>Contacts</button>
+      </div>
+
+      <form>
+        <div class="mb-3">
+          <label for="email">Email address</label>
+          <input type="email" id="email" class="form-control" value="admin@moviemate.com"/>
+        </div>
+        <div class="mb-3">
+          <label for="token">Token</label>
+          <input type="text" id="token" class="form-control"/>
+          <div class="note">Token is sent to email</div>
+        </div>
+        <div class="mb-3">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" class="form-control"/>
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary">Reset Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
