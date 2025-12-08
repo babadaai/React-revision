@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Conditional = ({player=""}) => {
   return (
-    <div>{player ? <Scored player={player} /> :<Missed /> }</div>
+    <div>{player && <Scored player={player} />  }</div>
   )
 }
 export const Missed=()=>{
