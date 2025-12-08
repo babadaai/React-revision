@@ -1,48 +1,45 @@
-import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
-  const [payload, setPayload] = useState({ email: "", message: "" });
+// User pages
+import Contact from "../pages/user/Contact";
+import Login from "../pages/user/Login";
+import Movie from "../pages/user/Movie";
+import Movies from "../pages/user/Movies";
 
-   const validEmail=()=>{
-    console.log("I am validating email")
-   }
-  useEffect(() => {
-    validEmail({payload})
-  }, [payload]);
-  const handelSubmit=(e)=>{
-    e.preventDefault()
-    console.log(payload)
+// Admin pages
+import Users from "../pages/admin/Users";
 
-  }
+// Layouts
+import UserLayout from "../layouts/UserLayout";
 
+// Error page
+import ErrorPage from "../pages/ErrorPage";
+import { PrivateRoute } from "../components/PrivateRoute";
+
+const App = () => {
   return (
-    <div className="container">
-      <form onSubmit={(e)=>{handelSubmit(e)}}>
-        <div className="mb-3">
-          <label className="form-label">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="name@example.com"
-            onChange={(e) =>
-              setPayload((prev) => ({ ...prev, email: e.target.value }))
-            }
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Message</label>
-          <textarea
-            className="form-control"
-            rows="3"
-            onChange={(e) =>
-              setPayload((prev) => ({ ...prev, message: e.target.value }))
-            }
-          ></textarea>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <Routes>
+      {/* User Normal Routes */}
+      <Route path="/" element={<UserLayout />}>
+        <Route path="contact" element={<Contact />} />
+        <Route path="login" element={<Login />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="movie/:id" element={<Movie />} />
+      </Route>
+
+      {/* Admin Routes */}
+      <Route path="/admin">
+        <Route path="users" element={
+            <PrivateRoute>
+            <Users />
+            </PrivateRoute>
+             } />
+      </Route>
+
+      {/* Error Handling */}
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
-}
+};
 
 export default App;
