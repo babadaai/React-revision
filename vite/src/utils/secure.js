@@ -1,11 +1,12 @@
+// src/utils/secure.js
 import { getToken } from "./token";
-export const isValid=()=>{
-    const token =getToken();
-    if (!token) throw new Error("Token is missing")
-        return token
-}
-export const isValidRole=(sysRole=[],userRole=[])=>{
-    if(sysRole===0) return true
-    return sysRole.some((role)=>userRole.includes(role)) 
 
-}
+export const isValidToken = () => {
+  const token = getToken();
+  return !!token; // true if token exists, false otherwise
+};
+
+export const isValidRole = (sysRole = [], userRole = []) => {
+  if (sysRole.length === 0) return true; // no restriction
+  return sysRole.some((role) => userRole.includes(role));
+};

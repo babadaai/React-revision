@@ -1,25 +1,26 @@
+// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 
 // User pages
-import Contact from "../pages/user/Contact";
-import Login from "../pages/user/Login";
-import Movie from "../pages/user/Movie";
-import Movies from "../pages/user/Movies";
+import Contact from "./users/Contact";
+import Login from "./users/Login";
+import { Movie } from "./users/Movie";
+import { Movies } from "./users/Movies";
+import { Dashboard } from "./admin/Dashboard";
 
 // Admin pages
-import Users from "../pages/admin/Users";
+import { Users } from "./admin/Users";
 
 // Layouts
-import UserLayout from "../layouts/UserLayout";
+import { UserLayout } from "./layout/UserLayout";
 
-// Error page
-import ErrorPage from "../pages/ErrorPage";
-import { PrivateRoute } from "../components/PrivateRoute";
+// Private route
+import { PrivateRoute } from "./components/PrivateRoute";
 
 const App = () => {
   return (
     <Routes>
-      {/* User Normal Routes */}
+      {/* User routes */}
       <Route path="/" element={<UserLayout />}>
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
@@ -27,17 +28,19 @@ const App = () => {
         <Route path="movie/:id" element={<Movie />} />
       </Route>
 
-      {/* Admin Routes */}
-      <Route path="/admin">
-        <Route path="users" element={
-            <PrivateRoute>
-            <Users />
-            </PrivateRoute>
-             } />
-      </Route>
+      {/* Admin routes */}
+      <Route
+        path="/admin/users"
+        element={<PrivateRoute component={<Users />} sysRole={["admin"]} />}
+      />
+      <Route
+  path="/admin/dashboard"
+  element={<PrivateRoute component={<Dashboard />} sysRole={["admin"]} />}
+/>
 
-      {/* Error Handling */}
-      <Route path="*" element={<ErrorPage />} />
+
+      {/* Optional: Add a catch-all for 404 */}
+      <Route path="*" element={<div>Page Not Found</div>} />
     </Routes>
   );
 };
